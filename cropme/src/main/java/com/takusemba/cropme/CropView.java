@@ -37,7 +37,7 @@ public class CropView extends FrameLayout implements Croppable {
     private static final float DEFAULT_PERCENT_HEIGHT = 0.8f;
 
     private static final int DEFAULT_MAX_SCALE = 2;
-    private static final int MIN_SCALE = 1;
+    private static final float MIN_SCALE = 0.2f;
     private static final int MAX_SCALE = 5;
 
     private static final float DEFAULT_BACKGROUND_ALPHA = 0.8f;
@@ -177,9 +177,9 @@ public class CropView extends FrameLayout implements Croppable {
     private void addLayouts() {
         CropImageView imageView = new CropImageView(getContext());
         imageView.setId(R.id.cropme_image_view);
-        LayoutParams imageParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
-        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        LayoutParams imageParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT, Gravity.NO_GRAVITY);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         addView(imageView, imageParams);
 
         CropOverlayView overlayView = new CropOverlayView(getContext());
